@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Caesar Cipher Python Code</title>
     <style>
       body {
         font-family: "Courier New", monospace;
@@ -18,7 +18,7 @@
         overflow-x: auto;
       }
       button {
-        margin-top: 10px;
+        margin: 10px 0;
         padding: 8px 16px;
         background-color: #4caf50;
         color: white;
@@ -33,8 +33,8 @@
     </style>
 
     <script>
-      function copyCode() {
-        const code = document.getElementById("code").innerText;
+      function copyCode(preId) {
+        const code = document.getElementById(preId).innerText;
         navigator.clipboard.writeText(code).then(() => {
           alert("Code copied to clipboard!");
         });
@@ -42,9 +42,9 @@
     </script>
   </head>
   <body>
-    <h1>Caesar Cipher - Python Code</h1>
+    <h1>Caesar Cipher/h1>
 
-    <pre id="code">
+    <pre id="code1">
 def encrypt(string, shift):
     cipher = ''
     for char in string:
@@ -77,9 +77,60 @@ if( option == 1):
     print("After Encryption : ", encrypt(text, s))
 else:
     print("After Decryption : ", decrypt(text, s))
-  </pre
-    >
+    </pre>
+    <button onclick="copyCode('code1')">Copy Caesar Cipher Code</button>
 
-    <button onclick="copyCode()">Copy Code</button>
+    <h1>Mono Alphabetic</h1>
+
+    <pre id="code2">
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+keyword = "ZYXWVUTSRQPONMLKJIHGFEDCBA"  # Simple substitution cipher: reversed alphabet
+
+def encrypt(Plaintext):
+    result = ""
+    for char in Plaintext:
+        if char in alphabet:
+            num = alphabet.find(char)
+            result += keyword[num]
+        else:
+            result += char  # Keeps spaces or non-alphabet characters as-is
+    print("Encrypted Text:", result)
+
+def decrypt(Ciphertext):
+    result = ""
+    for char in Ciphertext:
+        if char in keyword:
+            num = keyword.find(char)
+            result += alphabet[num]
+        else:
+            result += char
+    print("Decrypted Text:", result)
+
+while True:
+    try:
+        n = int(input("Enter Value:\n1) Encrypt Text\n2) Decrypt Text\n3) See Key\n4) Exit\nChoice: "))
+    except ValueError:
+        print("Invalid input; please enter a number between 1 and 4.")
+        continue
+
+    if n == 1:
+        Plaintext = input("Enter Text to Encrypt: ")
+        encrypt(Plaintext.upper())
+
+    elif n == 2:
+        Ciphertext = input("Enter Text to Decrypt: ")
+        decrypt(Ciphertext.upper())
+
+    elif n == 3:
+        print("Substitution Key (Keyword):", keyword)
+
+    elif n == 4:
+        print("Exiting the program.")
+        break
+
+    else:
+        print("Invalid Input; Enter Again!!")
+    </pre>
+    <button onclick="copyCode('code2')">Copy Mono Alphabetic Code</button>
   </body>
 </html>
