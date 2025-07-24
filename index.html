@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Caesar Cipher Python Code</title>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
     body {
       font-family: 'Courier New', monospace;
       background-color: #1e1e1e;
@@ -30,10 +31,19 @@
       background-color: #45a049;
     }
   </style>
+
+
+  <script>
+    function copyCode() {
+      const code = document.getElementById('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+      });
+    }
+  </script>
 </head>
 <body>
-
-  <h1>Caesar Cipher - Python Code</h1>
+    <h1>Caesar Cipher - Python Code</h1>
 
   <pre id="code">
 def encrypt(string, shift):
@@ -72,14 +82,7 @@ else:
 
   <button onclick="copyCode()">Copy Code</button>
 
-  <script>
-    function copyCode() {
-      const code = document.getElementById('code').innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        alert('Code copied to clipboard!');
-      });
-    }
-  </script>
+  
 
 </body>
 </html>
